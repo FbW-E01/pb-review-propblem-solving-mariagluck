@@ -1,9 +1,6 @@
-
-// 0. *NOTE* Before you start to actually work (code) on each question, make work estimates for each one; how long it will take you to solve each question.
-
 // 1. Make a function that works like this:
 
-//time estimate: 5 minutes code, but it took more like 20-25
+//time estimate: 5 minutes code, but it took more like 20 because of the array print not object
 
 function examine(...args ) {
     const argsTypeArray = args.map(el => Array.isArray(el) ? `"array"`  : `"${typeof el}"`); 
@@ -29,18 +26,14 @@ function examine(...args ) {
 
 //time estimate: 5 minute code starts 13:09 -end 13:14
 
-//function  seSome() takes several arguments , inside the scope the function saves a variable called args with the arguments taken .slice(1, 3), which means it saves a shallow copy of the arguments passed containing the portion indicated (elements from index 1-included on until index 3-excluded) as array. next line returns the variable args. Outside the function, we call it by console.log(name of the function ( arguments we want to pass)) -->   console.log(getSome(90, 100, 75, 40, 89, 95));
+//function getSome() takes several arguments, 
+//inside the scope the function saves a variable called args with the arguments .slice(1, 3), which means it saves a shallow copy of the arguments passed containing the portion indicated (elements from index 1-included until index 3-excluded) as an array. 
+//next line returns the variable args. 
+//Outside the function, we call it by console.log(name of the function(arguments we want to pass)) --> console.log(getSome(90, 100, 75, 40, 89, 95));
 
 // 3. "Client order"
 
 // Your client SpaceY is creating a new AI system that tries to detect patterns in data using their new algorithm. You need to create a function or functions that can be used to generate data that looks like this: 
-
-    // [
-    //     { id: "00000005", time: "21.11.2001 14:11:21 UTC" }
-    //     { id: "00328105", time: "01.04.2021 03:10:31 UTC" }
-    //     { id: "01128503", time: "11.01.2003 13:04:05 UTC" }
-    //     { id: "11160001", time: "10.12.1997 14:51:55 UTC" }
-    // ]
 
 // Your function will need to generate data based on three different inputs:
 
@@ -48,10 +41,6 @@ function examine(...args ) {
 //     - startDate:string - the first date when your data should be created (from 00:00:00)
 //     - endDate:string - the last date when your data should be created (to 23:59:59)
 
-
-
-
-// Also, add a comment where you report how long does it take to generate 10 million lines of data.
 
 function datesGenerator(idLength, start, end) {
     const id = idLength * (Math.floor(Math.random() * 100000000));
@@ -63,10 +52,9 @@ function datesGenerator(idLength, start, end) {
     
 }
 
-console.log(datesGenerator(5, new Date(2012, 0, 1), new Date())); 
-// e.g. { id: 275614680, time: '06.12.2016, 11:53:55 UTC' }
+console.log(datesGenerator(5, new Date(2012, 0, 1), new Date())); // e.g. { id: 275614680, time: '06.12.2016, 11:53:55 UTC' }
 
-// this is an example to test that it works: prints an array of dates with 10 date objects
+// this is an example to test and prints an array of dates with 10 date objects
 const arrayOf10Dates = [];
 for (let i = 0; i < 10; i++) {
     arrayOf10Dates.push(datesGenerator(5, new Date(2012, 0, 1), new Date()));
