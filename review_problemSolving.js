@@ -1,3 +1,4 @@
+
 // 1. Make a function that works like this:
 
 //time estimate: 5 minutes code, but it took more like 20 because of the array print not object
@@ -44,11 +45,18 @@ function examine(...args ) {
 
 function datesGenerator(idLength, start, end) {
     const id = idLength * (Math.floor(Math.random() * 100000000));
+    const idString = String(id).padStart(9, "0");
 
     const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-    const formatedDate = randomDate.toLocaleString('DE', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',second:'2-digit' });
+    const formatedDate = randomDate.toLocaleString('DE', { 
+        year: 'numeric', 
+        month: '2-digit', 
+        day: '2-digit', 
+        hour: '2-digit', 
+        minute: '2-digit',
+        second:'2-digit' });
    
-    return { id: id, time: formatedDate + " UTC" };
+    return { id: idString, time: formatedDate + " UTC" };
     
 }
 
@@ -86,4 +94,3 @@ for (let i = 0; i < 10000000; i++) {
 }
 console.log(arrayOfDates);
 console.timeEnd("test"); // test: 17:29.247 (m:ss.mmm)
- 
